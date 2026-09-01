@@ -1,42 +1,46 @@
-public class Cliente extends Pessoa{
-    private String codigoCTI;
-    private String segmento;
-    private String nivel;
+// Importando as bibliotecas para trabalhar com lista
 
-    public Cliente(
-        String nome,
-        String codigoCTI,
-        String segmento,
-        String nivel
-    ){
-        super(nome);
+import java.util.ArrayList;
+import java.util.List;
+public class Main {
 
-        this.codigoCTI = codigoCTI;
-        this.segmento = segmento;
-        this.nivel = nivel;
-    }
- 
-    // retorna o codigo do cliente
-    public String getCodigoCTI(){
-        return codigoCTI;
-    }
+    // Cria a função principal
 
-    public String getSegmento(){
-        return segmento;
-    }
+    public static void main(String [] args){
 
-    public String getNivel(){
-        return nivel;
-    }
+        List<Servico> servicos = new ArrayList<>();
 
-    // Polimorfismo
-    @Override
+    Pessoa pessoa1 = new Consultor("Daniel Vieira", "CON-0095");
+    Pessoa pessoa2 = new Cliente("Alpha", "CLI-001", "Industrial", "A");
+     pessoa1.exibirInformacoes();
+     System.out.println();
+     pessoa2.exibirInformacoes();
 
-    public void exibirInformacoes(){
-        System.out.println("=== CLIENTE ===");
-        System.out.println("Nome: " + getNome());
-        System.out.println("Código CTI: " + codigoCTI);
-        System.out.println("Nivel: " + nivel);
-    }
-   
+     //Servico servico1 = new ServicoDiagnostico("Diagnostico de processos");
+     //Servico servico2 = new ServicoConsultoria("Consultoria em automação");
+
+     servicos.add(new ServicoDiagnostico("Diagnóstico de processos"));
+     servicos.add(new ServicoConsultoria("Consultoria em automação"));
+     servicos.add(new ServicoConsultoria("Otimização de processos"));
+     //servico1.executar();
+     //servico2.executar();
+
+     for(Servico servico: servicos){
+        System.out.println("Serviço: " + servico.getNome());
+
+        servico.executar();
+        System.out.println();
+     }
+
+     //TelemetriaSucesso sucesso = new TelemetriaSucesso("Execução do serviço", "Sucesso", "Relatório gerado");
+     
+     //TelemetriaErro erro = new TelemetriaErro("Execução do serviço", "Erro", "Falha ao acessar o banco de dados");
+    
+    // Exemplo telemetria com polimorfismo
+    Telemetria telemetria1 = new TelemetriaSucesso("Execução do serviço", "Sucesso","Relatório gerado");
+    Telemetria telemetria2 = new TelemetriaErro("Execução do serviço", "Erro","Falha ao acessar o banco de dados");
+     telemetria1.exibirTelemetria();
+    telemetria2.exibirTelemetria();
+
+    }   
 }

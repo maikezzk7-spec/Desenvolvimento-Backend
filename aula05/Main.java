@@ -31,6 +31,17 @@ public class Main {
         servico.executar();
         System.out.println();
      }
+
+     //TelemetriaSucesso sucesso = new TelemetriaSucesso("Execução do serviço", "Sucesso", "Relatório gerado");
      
-    }   
+     //TelemetriaErro erro = new TelemetriaErro("Execução do serviço", "Erro", "Falha ao acessar o banco de dados");
+    
+    // Exemplo telemetria com polimorfismo
+    Telemetria telemetria1 = new TelemetriaSucesso("Execução do serviço", "Sucesso","Relatório gerado");
+    Telemetria telemetria2 = new TelemetriaErro("Execução do serviço", "Erro","Falha ao acessar o banco de dados");
+     telemetria1.exibirTelemetria();
+    telemetria2.exibirTelemetria();
+   
+    }
+    
 }
