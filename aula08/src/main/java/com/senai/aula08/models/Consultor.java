@@ -28,6 +28,9 @@ public class Consultor {
     @Column(name = "email", nullable = false, unique = true, length = 150)
     private String email;
 
+    @Column(name = "senha", nullable = false, unique = true, length = 150)
+    private String senha;
+
     @Column(name = "telefone", length = 30)
     private String telefone;
 
@@ -37,16 +40,18 @@ public class Consultor {
 
     // Construtor vazio
     public Consultor() {
+
     }
 
     // Construtor com parâmetros
-    public Consultor(String nome, String email, String telefone) {
+    public Consultor(String nome, String email, String senha, String telefone) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
+        this.senha = senha;
     }
 
-    public Long getIdConsultor() {
+    public Long getIdLong() {
         return idConsultor;
     }
 
@@ -64,6 +69,14 @@ public class Consultor {
 
     public String getEmail() {
         return email;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getSenha() {
+        return senha;
     }
 
     public void setEmail(String email) {
@@ -85,4 +98,5 @@ public class Consultor {
     public void setClientes(List<Cliente> clientes) {
         this.clientes = clientes;
     }
+
 }
