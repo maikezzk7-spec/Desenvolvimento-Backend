@@ -5,7 +5,6 @@ import  jakarta.validation.constraints.Email;
 public record LoginRequest(@NotBlank (message = "O email é obrigatório")
 @Email(message="Informe um email válido")
 
-        
      String email,@NotBlank (message = "A senha é obrigar")
      
      @NotBlank String Senha) {}
